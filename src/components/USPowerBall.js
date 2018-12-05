@@ -147,58 +147,58 @@ class USPowerBall extends Component {
 resetApp() {
   config.selectedNumbers = [];
 }
-  multiplier(num) {
-    if(num === 20 || num === 1)
-    {
-      return 1.01;
-    } else if(num === 7 || num === 24) {
-      return 1.02;
-    } else if(num === 42 || num === 12) {
-      return 1.03;
-    } else if(num === 27 || num === 31) {
-      return 1.04;
-    } else if(num === 45 || num === 6) {
-      return 1.05;
-    } else if(num === 5 || num === 39) {
-      return 1.06;
-    } else if(num === 49 || num === 36) {
-      return 1.07;
-    } else if(num === 14 || num === 13) {
-      return 1.08;
-    } else if(num === 25 || num === 40) {
-      return 1.09;
-    } else if(num === 29 || num === 35) {
-      return 1.10;
-    }  else if(num === 21 || num === 48) {
-      return 1.10;
-    } else if(num === 26 || num === 8) {
-      return 1.11;
-    } else if(num === 15 || num === 16) {
-      return 1.12;
-    } else if(num === 19 || num === 9 || num === 29) {
-      return 1.13;
-    } else if(num === 37 || num === 34 || num === 47) {
-      return 1.14;
-    } else if(num === 38 || num === 18 || num === 50) {
-      return 1.15;
-    } else if(num === 30 || num === 32 || num === 38) {
-      return 1.16;
-    } else if(num === 10 || num === 22 || num === 20) {
-      return 1.17;
-    } else if(num === 17 || num === 2 || num === 33) {
-      return 1.18;
-    } else if(num === 4 || num === 41 || num === 46) {
-      return 1.19;
-    } else if(num === 23 || num === 47 || num === 34) {
-      return 1.20;
-    } else if(num === 44 || num === 33 || num === 11) {
-      return 1.21;
-    } else if(num === 50 || num === 46 || num === 22) {
-      return 1.22
-    } else {
-      return 1;
-    }
-  }
+multiplier(num) {
+if(num === 24 || num === 59)
+{
+  return 1.01;
+} else if(num === 16 || num === 13) {
+  return 1.02;
+} else if(num === 50 || num === 58) {
+  return 1.03;
+} else if(num === 53 || num === 5) {
+  return 1.04;
+} else if(num === 57 || num === 14) {
+  return 1.05;
+} else if(num === 9 || num === 36) {
+  return 1.06;
+} else if(num === 62 || num === 52) {
+  return 1.07;
+} else if(num === 56 || num === 51) {
+  return 1.08;
+} else if(num === 54 || num === 43) {
+  return 1.09;
+} else if(num === 1 || num === 11) {
+  return 1.10;
+}  else if(num === 45 || num === 12) {
+  return 1.10;
+} else if(num === 20 || num === 40) {
+  return 1.11;
+} else if(num === 21 || num === 31) {
+  return 1.12;
+} else if(num === 41 || num === 15) {
+  return 1.13;
+} else if(num === 3 || num === 47) {
+  return 1.14;
+} else if(num === 32 || num === 60) {
+  return 1.15;
+} else if(num === 17 || num === 65) {
+  return 1.16;
+} else if(num === 69 || num === 46) {
+  return 1.17;
+} else if(num === 63 || num === 30) {
+  return 1.18;
+} else if(num === 64 || num === 2) {
+  return 1.19;
+} else if(num === 23 || num === 4) {
+  return 1.20;
+} else if(num === 61 || num === 35) {
+  return 1.21;
+} else if(num === 28 || num === 34) {
+  return 1.22
+} else {
+  return 1;
+}
+}
 
   displayNumbers() {
     var display = [];
@@ -219,7 +219,7 @@ resetApp() {
       for(var j = this.state.powerSortable.length - 1; j<this.state.powerSortable.length; j++) {
         displayPower.push(this.state.powerSortable[j][0]);
 
-      
+
       }
 
 
