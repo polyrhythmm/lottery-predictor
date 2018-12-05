@@ -219,9 +219,7 @@ resetApp() {
       for(var j = this.state.powerSortable.length - 1; j<this.state.powerSortable.length; j++) {
         displayPower.push(this.state.powerSortable[j][0]);
 
-        if(i !== this.state.powerSortable.length - 1){
-            displayPower.push('|')
-        }
+      
       }
 
 
