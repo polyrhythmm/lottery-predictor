@@ -40,7 +40,7 @@ class EuroMillions extends Component {
 
     this.mapToObject();
 
-  //  this.log();
+
   }
 
   runNumbers() {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import config from '../config/auspowerballConfig';
+import config from '../config/uspowerballConfig';
 
-class AUSPowerBall extends Component {
+class USPowerBall extends Component {
   constructor() {
     super();
 
@@ -29,7 +29,7 @@ class AUSPowerBall extends Component {
   }
 
   componentDidMount(){
-    while(config.count < config.iteration) {//8145060
+    while(config.count < 2) {//8145060
       this.selectNumbers();
       this.processSelected();
       this.selectPowerBall();
@@ -40,7 +40,7 @@ class AUSPowerBall extends Component {
 
     this.mapToObject();
 
-    //this.log();
+  //  this.log();
   }
 
   runNumbers() {
@@ -205,7 +205,7 @@ multiplier(num) {
     var displayPower = [];
 
     if(this.state.sortable.length > 0){
-      for(var i = this.state.sortable.length - config.pool; i < this.state.sortable.length; i++)
+      for(var i = this.state.sortable.length - 5; i < this.state.sortable.length; i++)
       {
         display.push(this.state.sortable[i][0]);
 
@@ -241,4 +241,4 @@ multiplier(num) {
     )
   }
 }
-export default AUSPowerBall;
+export default USPowerBall;
