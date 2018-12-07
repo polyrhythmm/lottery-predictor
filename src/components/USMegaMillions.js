@@ -29,7 +29,7 @@ class USMegaMillions extends Component {
   }
 
   componentDidMount(){
-    while(config.count < 2) {//8145060
+    while(config.count < config.iteration) {//8145060
       this.selectNumbers();
       this.processSelected();
       this.selectPowerBall();
@@ -205,7 +205,7 @@ multiplier(num) {
     var displayPower = [];
 
     if(this.state.sortable.length > 0){
-      for(var i = this.state.sortable.length - 5; i < this.state.sortable.length; i++)
+      for(var i = this.state.sortable.length - config.pool; i < this.state.sortable.length; i++)
       {
         display.push(this.state.sortable[i][0]);
 
