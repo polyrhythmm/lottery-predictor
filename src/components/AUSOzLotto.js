@@ -111,6 +111,7 @@ class AUSOzLotto extends Component {
 
 resetApp() {
   config.selectedNumbers = [];
+  config.selectedPower = 0;
 }
   multiplier(num) {
     if(num === 20 || num === 1)

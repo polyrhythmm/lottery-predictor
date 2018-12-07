@@ -29,15 +29,22 @@ class AUSPowerBall extends Component {
   }
 
   componentDidMount(){
-    while(config.count < config.iteration) {//8145060
+    while(config.count < config.poolIteration) {//8145060
       this.selectNumbers();
       this.processSelected();
+      this.resetApp();
+      this.increment();
+    }
+
+    config.count = 0;
+
+    while(config.count < config.powerIteration)
+    {
       this.selectPowerBall();
       this.processPowerBall();
       this.resetApp();
       this.increment();
     }
-
     this.mapToObject();
 
   //  this.log();
@@ -68,7 +75,7 @@ class AUSPowerBall extends Component {
   selectPowerBall() {
 
       config.selectedPower = Math.floor(Math.random() * config.powerArray.length)
-      console.log(config.selectedPower);
+
   }
 
   processSelected() {
@@ -107,7 +114,6 @@ class AUSPowerBall extends Component {
         config.powerSortable.push([powerValue, config.powerObject[powerValue]]);
     }
 
-    console.log(config.powerSortable)
     config.powerSortable.sort(function(a, b) {
         return a[1] - b[1];
     });
@@ -116,6 +122,8 @@ class AUSPowerBall extends Component {
       sortable: config.sortable,
       powerSortable: config.powerSortable
     })
+
+    console.log(config.powerSortable)
   }
 
 
@@ -146,6 +154,7 @@ class AUSPowerBall extends Component {
 
 resetApp() {
   config.selectedNumbers = [];
+  config.selectedPower = 0;
 }
 multiplier(num) {
   if(num === 36 || num === 11)
