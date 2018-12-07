@@ -6,22 +6,29 @@ class AUSPowerBall extends Component {
   constructor() {
     super();
 
+    config.poolArray =[]
     for(var i = 1; i <= config.lotteryPool; i++) {
         config.poolArray.push(i);
     }
 
+    config.selectedArray = [];
     for(var j = 1; j <= config.lotteryPool; j++) {
       config.selectedArray.push(0);
     }
 
+    config.powerArray = [];
     for(var k = 1; k <= config.powerPool; k++) {
       config.powerArray.push(k);
     }
 
+    config.powerSelectedArray = [];
     for(var m = 1; m <= config.powerPool; m++) {
       config.powerSelectedArray.push(0);
     }
 
+    config.numbersObject = {};
+    config.powerObject = {};
+    config.count = 0;
     this.state = {
       sortable: [],
       powerSortable: []
@@ -29,22 +36,20 @@ class AUSPowerBall extends Component {
   }
 
   componentDidMount(){
-    while(config.count < config.poolIteration) {//8145060
+    console.log("working")
+    console.log(config.iterator)
+    while(config.count < config.iterator) {//8145060
+
       this.selectNumbers();
       this.processSelected();
-      this.resetApp();
-      this.increment();
-    }
-
-    config.count = 0;
-
-    while(config.count < config.powerIteration)
-    {
       this.selectPowerBall();
       this.processPowerBall();
       this.resetApp();
       this.increment();
+
+
     }
+
     this.mapToObject();
 
   //  this.log();
@@ -73,9 +78,8 @@ class AUSPowerBall extends Component {
   }
 
   selectPowerBall() {
-
-      config.selectedPower = Math.floor(Math.random() * config.powerArray.length)
-
+        config.selectedPower = Math.floor(Math.random() * config.powerArray.length) + 1;
+        console.log(config.selectedPower)
   }
 
   processSelected() {
@@ -88,16 +92,19 @@ class AUSPowerBall extends Component {
   }
 
   processPowerBall() {
-    config.powerSelectedArray[config.selectedPower] += this.multiplier(config.selectedPower);
+
+    config.powerSelectedArray[config.selectedPower - 1] += this.multiplier(config.selectedPower);
+
   }
 
   mapToObject() {
-    for(var p = 0; p < config.poolArray.length; p++) {
+    for(var p = 1; p < config.poolArray.length; p++) {
       config.numbersObject[config.poolArray[p]] = config.selectedArray[p];
     }
 
+    console.log(config.powerObject)
     for(var i = 0; i < config.powerArray.length; i++) {
-      config.powerObject[config.powerArray[i]] = config.powerSelectedArray[i];
+      config.powerObject[config.powerArray[i]] = config.powerSelectedArray[i]
     }
 
     config.sortable = [];
@@ -124,6 +131,7 @@ class AUSPowerBall extends Component {
     })
 
     console.log(config.powerSortable)
+
   }
 
 
@@ -154,58 +162,62 @@ class AUSPowerBall extends Component {
 
 resetApp() {
   config.selectedNumbers = [];
-  config.selectedPower = 0;
 }
+
 multiplier(num) {
-  if(num === 36 || num === 11)
-  {
-    return 1.01;
-  } else if(num === 18 || num === 4) {
-    return 1.02;
-  } else if(num === 17 || num === 8) {
-    return 1.03;
-  } else if(num === 6 || num === 24) {
-    return 1.04;
-  } else if(num === 26 || num === 9) {
-    return 1.05;
-  } else if(num === 4 || num === 26) {
-    return 1.06;
-  } else if(num === 25 || num === 13) {
-    return 1.07;
-  } else if(num === 31 || num === 10) {
-    return 1.08;
-  } else if(num === 2 || num === 20) {
-    return 1.09;
-  } else if(num === 32 || num === 27) {
-    return 1.10;
-  }  else if(num === 7 || num === 32) {
-    return 1.10;
-  } else if(num === 29 || num === 21) {
-    return 1.11;
-  } else if(num === 34 || num === 22) {
-    return 1.12;
-  } else if(num === 8 || num === 19) {
-    return 1.13;
-  } else if(num === 19 || num === 5) {
-    return 1.14;
-  } else if(num === 13 || num === 6) {
-    return 1.15;
-  } else if(num === 8 || num === 1) {
-    return 1.16;
-  } else if(num === 19 || num === 31) {
-    return 1.17;
-  } else if(num === 13 || num === 40) {
-    return 1.18;
-  } else if(num === 23 || num === 37) {
-    return 1.19;
-  } else if(num === 24 || num === 39) {
-    return 1.20;
-  } else if(num === 22 || num === 38) {
-    return 1.21;
-  } else if(num === 5 || num === 36) {
-    return 1.22
-  } else {
+  var bonus = 0;
+
+  if(num === 13 || num === 28) {
+   bonus +=  1.12;
+  } else if(num === 5 || num === 20) {
+   bonus +=  1.11;
+ }else if(num === 24 || num === 12) {
+   bonus +=  1.11;
+ }else if(num === 23 || num === 10) {
+   bonus +=  1.10;
+ }else if(num === 22 || num === 27) {
+   bonus +=  1.10;
+ }else if(num === 34 || num === 9) {
+   bonus +=  1.09;
+ }else if(num === 29 || num === 40) {
+   bonus +=  1.08;
+ }else if(num === 32 || num === 39) {
+   bonus +=  1.08;
+ }else if(num === 8 || num === 1) {
+   bonus +=  1.07;
+ }else if(num === 31 || num === 16) {
+   bonus +=  1.07;
+ }else if(num === 19 || num === 3) {
+   bonus +=  1.6;
+ }else if(num === 26 || num === 15) {
+   bonus +=  1.06;
+ }else if(num === 6 || num === 21) {
+   bonus += 1.05;
+ }else if(num === 36 || num === 35) {
+   bonus +=  1.05;
+ }else if(num === 25 || num === 11) {
+   bonus +=  1.04;
+ }else if(num === 2 || num === 37) {
+   bonus +=  1.04;
+ }else if(num === 7 || num === 14) {
+   bonus +=  1.03;
+ }else if(num === 4 || num === 33) {
+   bonus +=  1.03;
+ }else if(num === 30 || num === 38) {
+   bonus +=  1.02;
+ }else if(num === 17 || num === 4) {
+   bonus +=  1.02;
+ } else if(num === 18 || num === 17) {
+   bonus +=  1.01;
+ } else if(num === 38 || num === 30)
+ {
+   bonus += 1.01;
+ }
+
+  if(bonus === 0){
     return 1;
+  } else {
+    return bonus;
   }
 }
 
@@ -230,7 +242,6 @@ multiplier(num) {
 
 
       }
-
 
     }
     return (
