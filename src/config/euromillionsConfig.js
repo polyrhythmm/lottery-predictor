@@ -9,9 +9,9 @@ module.exports = {
   lotteryPool: 50,
   powerPool: 12,
   selectedNumbers: [],
-  selectedPower: 0,
+  selectedPowers: [],
   numbersObject: {},
   powerObject: {},
   count: 0,
-  iteration: 100000
+  iterator: 100000
 }

@@ -36,8 +36,6 @@ class AUSPowerBall extends Component {
   }
 
   componentDidMount(){
-    console.log("working")
-    console.log(config.iterator)
     while(config.count < config.iterator) {//8145060
 
       this.selectNumbers();
@@ -63,7 +61,7 @@ class AUSPowerBall extends Component {
 
 
     for(var i = 1; i <= config.pool; i++) {
-      var random = Math.floor(Math.random() * config.poolArray.length);
+      var random = Math.floor(Math.random() * config.poolArray.length) + 1;
 
       if(config.selectedNumbers.indexOf(random, 0) === -1) {
         newArray.push(random);
@@ -79,7 +77,7 @@ class AUSPowerBall extends Component {
 
   selectPowerBall() {
         config.selectedPower = Math.floor(Math.random() * config.powerArray.length) + 1;
-        console.log(config.selectedPower)
+
   }
 
   processSelected() {
@@ -99,10 +97,9 @@ class AUSPowerBall extends Component {
 
   mapToObject() {
     for(var p = 1; p < config.poolArray.length; p++) {
-      config.numbersObject[config.poolArray[p]] = config.selectedArray[p];
+      config.numbersObject[config.poolArray[p] - 1] = config.selectedArray[p];
     }
 
-    console.log(config.powerObject)
     for(var i = 0; i < config.powerArray.length; i++) {
       config.powerObject[config.powerArray[i]] = config.powerSelectedArray[i]
     }
@@ -129,12 +126,7 @@ class AUSPowerBall extends Component {
       sortable: config.sortable,
       powerSortable: config.powerSortable
     })
-
-    console.log(config.powerSortable)
-
   }
-
-
 
   increment() {
     config.count += 1;
@@ -154,7 +146,7 @@ class AUSPowerBall extends Component {
     console.log("   ---------------------------");
     console.log("   YOUR LUCKY STARS ARE       ");
     console.log("   ---------------------------");
-    for(var j = config.powerSortable.length - 2; j<config.powerSortable.length; j++) {
+    for(var j = config.powerSortable.length - 1; j<config.powerSortable.length; j++) {
       console.log('<<<<<  ' + config.powerSortable[j][0] + '  >>>>>');
     }
   }
@@ -167,49 +159,49 @@ resetApp() {
 multiplier(num) {
   var bonus = 0;
 
-  if(num === 13 || num === 28) {
+  if(num === 5 || num === 27) {
    bonus +=  1.12;
-  } else if(num === 5 || num === 20) {
+ } else if(num === 22 || num === 1) {
    bonus +=  1.11;
- }else if(num === 24 || num === 12) {
+ }else if(num === 24 || num === 10) {
    bonus +=  1.11;
- }else if(num === 23 || num === 10) {
+ }else if(num === 23 || num === 28) {
    bonus +=  1.10;
- }else if(num === 22 || num === 27) {
+ }else if(num === 13 || num === 12) {
    bonus +=  1.10;
- }else if(num === 34 || num === 9) {
+ }else if(num === 19 || num === 21) {
    bonus +=  1.09;
- }else if(num === 29 || num === 40) {
+ }else if(num === 29 || num === 3) {
    bonus +=  1.08;
- }else if(num === 32 || num === 39) {
+ }else if(num === 34 || num === 9) {
    bonus +=  1.08;
- }else if(num === 8 || num === 1) {
+ }else if(num === 8 || num === 10) {
    bonus +=  1.07;
- }else if(num === 31 || num === 16) {
+ }else if(num === 32 || num === 16) {
    bonus +=  1.07;
- }else if(num === 19 || num === 3) {
+ }else if(num === 7 || num === 11) {
    bonus +=  1.6;
- }else if(num === 26 || num === 15) {
+ }else if(num === 2 || num === 35) {
    bonus +=  1.06;
- }else if(num === 6 || num === 21) {
+ }else if(num === 31 || num === 15) {
    bonus += 1.05;
- }else if(num === 36 || num === 35) {
+ }else if(num === 25 || num === 30) {
    bonus +=  1.05;
- }else if(num === 25 || num === 11) {
+ }else if(num === 25 || num === 14) {
    bonus +=  1.04;
- }else if(num === 2 || num === 37) {
+ }else if(num === 26 || num === 33) {
    bonus +=  1.04;
- }else if(num === 7 || num === 14) {
+ }else if(num === 17 || num === 18) {
    bonus +=  1.03;
- }else if(num === 4 || num === 33) {
+ }else if(num === 4 || num === 6) {
    bonus +=  1.03;
- }else if(num === 30 || num === 38) {
+ }else if(num === 6 || num === 4) {
    bonus +=  1.02;
  }else if(num === 17 || num === 4) {
    bonus +=  1.02;
  } else if(num === 18 || num === 17) {
    bonus +=  1.01;
- } else if(num === 38 || num === 30)
+ } else if(num === 33 || num === 26)
  {
    bonus += 1.01;
  }

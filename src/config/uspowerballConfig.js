@@ -13,5 +13,5 @@ module.exports = {
   numbersObject: {},
   powerObject: {},
   count: 0,
-  iteration: 100000
+  iterator: 100000
 }
