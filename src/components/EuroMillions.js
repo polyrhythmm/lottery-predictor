@@ -161,6 +161,7 @@ class EuroMillions extends Component {
 
 resetApp() {
   config.selectedNumbers = [];
+  config.selectedPowers = [];
 }
 
 
